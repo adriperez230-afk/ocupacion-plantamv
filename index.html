@@ -840,7 +840,7 @@ function supaDB(url,key){
       const iv=setInterval(pull,60000);return ()=>{clearInterval(iv);cl.removeChannel(ch)}}})};
 }
 /* ===== Conexión con Firebase (Firestore) ===== */
-const FIREBASE_CFG=null; // pegá acá el objeto firebaseConfig para que todos entren conectados
+const FIREBASE_CFG=null; /{apiKey:"AIza...",authDomain:"tableroocupacion-mv.firebaseapp.com",projectId:"tableroocupacion-mv",storageBucket:"...",messagingSenderId:"...",appId:"..."};/ 
 function fireCfg(){try{const c=JSON.parse(localStorage.getItem('mv_firebase')||'null');if(c&&c.apiKey&&c.projectId)return c}catch(e){}return FIREBASE_CFG}
 function parseFireCfg(txt){const o={};for(const k of ['apiKey','authDomain','projectId','storageBucket','messagingSenderId','appId']){const m=String(txt).match(new RegExp(k+'["\\\']?\\s*:\\s*["\\\']([^"\\\']+)["\\\']'));if(m)o[k]=m[1]}return o.apiKey&&o.projectId?o:null}
 function loadScript(src){return new Promise((ok,ko)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>ko(new Error('no se pudo cargar '+src));document.head.appendChild(s)})}
